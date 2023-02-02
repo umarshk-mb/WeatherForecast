@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+//Styles and background image for body.
+@media all and (min-width:360px){
+    body{
+        background-image: url(assets/images/background.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% ;  
+        background-size: cover; 
+        height: 100vh;
+    }
+}
+

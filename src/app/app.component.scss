@@ -1,0 +1,20 @@
+@import './_base.scss';
+
+.header{
+    background-color: $c_black;
+    font-family: Playfair Display;
+    color: $main_text;
+    font-size: 24px;
+    text-align: center;
+    padding: 8px;
+    letter-spacing: 2px;
+    opacity: 0.8;    
+}
+@media (min-width:$mobile) and (max-width:$tablet) {
+    .header{
+        font-size: 26px;
+        padding: 10px ;
+        color: $c_white;
+    }
+}
+

@@ -1,0 +1,129 @@
+@import './src/app/_base.scss';
+
+tr,td,th{
+    padding: 3px;
+    color: $c_white;
+    font-family: PT sans;
+}
+
+th{
+    font-family: Aboreto;
+    color: $table_head;    
+}
+.edit{
+    color: $edit;
+}
+.delete{
+    color: $delete;
+}
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-left: 10%;
+    margin-top: 10vh;
+    width:80%;
+}
+.date{
+    width:5px;
+}
+
+td, th {
+    border: 1px solid $c_white;
+    text-align: center;
+    padding: 3px;
+   // width: fit-content;
+}
+  
+tr:nth-child(even) {
+    background-color: #848482;
+}
+tr:nth-child(odd) {
+    background-color: #808080;
+}
+
+.saved-items{
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title,.pagination-controls{
+    color: $dark_blue;
+}
+
+.close,input{
+    margin-left: 3px;
+}
+
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    color: $c_white;
+    font-size: 10px;
+    background-color: $dark_blue;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+  }
+  
+  .delete:hover .tooltip-text {
+    visibility: visible;
+  }
+
+  .show-all{
+    display: flex;
+    height: 2rem;
+    
+
+  }
+  .search{
+    width: 15vw;
+    font-size: 12px;
+  }
+  .btn{
+    margin-left: 2px;
+    width: 6vw;
+    font-size: 13px;
+  }
+
+@media (min-width:$mobile) and (max-width:$tablet) {
+    table{
+        margin-top: 10vh;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+
+    tr,td,th{
+        padding: 3px;
+        font-size: 0.5rem;
+    }
+    button{
+        padding: 3px;
+        font-size: 0.3rem;
+    }
+    .search{
+        width: 30vw;
+        height: 1.8rem;
+        font-size: 10px;
+      }
+      .btn{
+        height: 1.8rem;
+        width: 14vw;
+        font-size: 10px;
+        margin-left: 2px;
+      }
+   
+}
+
+
+
+  

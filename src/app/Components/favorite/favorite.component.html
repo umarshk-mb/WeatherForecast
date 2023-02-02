@@ -1,0 +1,61 @@
+<div>
+<table>
+  <div class="show-all">
+    <input type="text"  class='search' placeholder="Type Location..." [(ngModel)]="search" (keyup)="GetByPagination(this.page,25,search)">
+    <!-- <button type="button" (click)="GetDataFromDB()" class="btn btn-secondary ">Show All</button> -->
+  </div> 
+  <tr>
+    <th class="date">Date</th>
+    <th>Location</th>
+    <th>Temperature</th>
+    <th>Weather</th>
+    <th>Edit</th>
+    <th>Remove</th> 
+  </tr>
+  <tr *ngFor="let value of read | paginate:{currentPage:page,itemsPerPage:size}">
+    <td class="date">{{value.dateTime | date }} </td>
+    <td>{{value.location}}</td>
+    <td>{{value.temperature }}</td>
+    <td>{{value.weather | uppercase}}</td>   
+    <td><i class="fa-solid fa-pen-to-square edit" type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="setId(value.id)"></i></td> 
+    <td><i class="fa-sharp fa-solid fa-trash delete" type="button" (click)="RemoveFromDB(value.id)"><span class="tooltip-text"> Want to delete </span></i></td>     
+  </tr>  
+
+  <div class="items">
+    <pagination-controls class="pagination-controls" previousLabel="Prev" nextLabel="Next" (pageChange)="onPageChange($event)"></pagination-controls>
+    Items per page:
+    <select (change)="onPageSizeChange($event)">
+      <option *ngFor="let size of select" [ngValue]="size">
+        {{size}}
+      </option>
+    </select>    
+  </div>
+</table>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Weather Forecast</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #UpdateForm="ngForm" (ngSubmit)="SaveUpdate(UpdateForm.value)">
+          <p>
+            <label for="location">Location: </label>
+            <input type="text" name="location" ngModel>
+          </p>
+          <button type="submit" class="btn btn-primary" >Save</button>
+          <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

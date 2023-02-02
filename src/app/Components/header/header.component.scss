@@ -1,0 +1,15 @@
+@import './src/app/_base.scss';
+
+.app-name{
+    color: $main_text;
+    margin-left: 5px;
+    font-family: Merriweather;
+}
+
+.nav-item{
+    color: $c_white;   
+}
+
+:active{
+    color: $main_text;
+}
