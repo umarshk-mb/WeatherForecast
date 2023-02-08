@@ -20,17 +20,16 @@
     <td><i class="fa-solid fa-pen-to-square edit" type="button" data-toggle="modal" data-target="#exampleModalCenter" (click)="setId(value.id)"></i></td> 
     <td><i class="fa-sharp fa-solid fa-trash delete" type="button" (click)="RemoveFromDB(value.id)"><span class="tooltip-text"> Want to delete </span></i></td>     
   </tr>  
-
-  <div class="items">
-    <pagination-controls class="pagination-controls" previousLabel="Prev" nextLabel="Next" (pageChange)="onPageChange($event)"></pagination-controls>
-    Items per page:
-    <select (change)="onPageSizeChange($event)">
-      <option *ngFor="let size of select" [ngValue]="size">
-        {{size}}
-      </option>
-    </select>    
-  </div>
 </table>
+<div class="items text-center">
+  <pagination-controls class="pagination-controls" previousLabel="Prev" nextLabel="Next" (pageChange)="onPageChange($event)"></pagination-controls>
+  Items per page:
+  <select (change)="onPageSizeChange($event)">
+    <option *ngFor="let size of select" [ngValue]="size">
+      {{size}}
+    </option>
+  </select>    
+</div>
 
 </div>
 

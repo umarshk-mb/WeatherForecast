@@ -1,5 +1,6 @@
-import { WeatherData } from '../../model/WeatherModel';
-import { Component } from '@angular/core';
+import { WeatherData } from './../../model/WeatherModel';
+
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WeatherapiService } from '../../services/weatherapi.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,30 +11,34 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss']
 })
-export class FavoriteComponent {
+export class FavoriteComponent implements OnInit{
   currentId:string="";
   read:any = [] ; 
 
   search='';
 
   page:any;
-  size:any=8;  
-  select = [2,4,6,10]
+  size:any=6;  
+  select = [ 1,2,4,6,10]
  
   data:any;
   weather:Observable<Array<WeatherData>> | undefined  
   constructor(private getdata:WeatherapiService,private route: ActivatedRoute){     
   }
   GetDataFromDB(){
-    this.getdata.GetDataFromDB().subscribe((value)=>{
-    this.read = value  
+    this.getdata.GetDataFromDB().subscribe((value)=>{    
+    this.read = value      
     })
   }
+
+
+
 
   ngOnInit() {
    // this.weather = this.getdata.WeatherToFav()
     this.read = this.route.snapshot.data['message'];
     this.GetDataFromDB()
+ 
   }
 
   SavetoDB(data:any){

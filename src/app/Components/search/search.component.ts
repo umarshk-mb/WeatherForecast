@@ -15,37 +15,55 @@ export class SearchComponent {
   //Creating new objects of type WeatherData.
   weatherforecast!:WeatherData;
   location:string='';
-  temperature:string='';
+  temperature:any='';
   humidity:string='';
   pressure:string='';
   weather:string='';
+  icon:any;
+  src:any;
+
 
   constructor(private api:WeatherapiService){}  
   
-  x:boolean=false;
+  display:boolean=false;
+  disabled:boolean=true;
+  
+  //button disable or enable
+  show(){
+    if(this.CityName!=''){
+      this.disabled = false;
+      
+    }
+    else{
+      this.disabled = true;      
+    }
+  }
+  
+  //Click method to get the data
   Search(){
     if(this.CityName!=null){
-      this.x=true;
+      this.display=true
       this.api.Search(this.CityName).
       subscribe((data)=>{
-       // console.log(data)
+      // console.log(data)
         this.forecast = data
         this.location = this.forecast.name
         this.temperature = this.forecast.main.temp
         this.humidity = this.forecast.main.humidity
         this.pressure = this.forecast.main.pressure
-        this.weather = this.forecast.weather[0].description      
+        this.weather = this.forecast.weather[0].description  
+        this.icon = this.forecast.weather[0].icon 
+        this.src = `https://openweathermap.org/img/wn/${this.icon}@2x.png`      
       },
       (error)=>{
-        window.alert("No weather found with the given city name.")
+        this.display=false
         console.error("City not found",error)
       })      
-    }
-    else{
-      this.x=false
-    }    
+    }   
   }
 
+
+  // To save the data
   AddToFavourite(){
     this.weatherforecast = new WeatherData()
     this.weatherforecast.weather = this.weather

@@ -17,7 +17,7 @@ export class WeatherapiService {
   }
 
   Search(city:string):Observable<any>{
-    return this.http.get(this.baseurl + city + '&appid=' + this.api_key)
+    return this.http.get(this.baseurl + city + '&units=metric&appid=' + this.api_key)
   }
 
   //Custom Web API
