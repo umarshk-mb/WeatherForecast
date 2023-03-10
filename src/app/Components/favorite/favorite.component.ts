@@ -1,5 +1,5 @@
 import { WeatherData } from './../../model/WeatherModel';
-
+import { PaginatePipe } from 'ngx-pagination';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WeatherapiService } from '../../services/weatherapi.service';
@@ -37,7 +37,7 @@ export class FavoriteComponent implements OnInit{
   ngOnInit() {
    // this.weather = this.getdata.WeatherToFav()
     this.read = this.route.snapshot.data['message'];
-    this.GetDataFromDB()
+    this.GetDataFromDB()    
  
   }
 

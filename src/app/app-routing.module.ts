@@ -1,4 +1,5 @@
-import { WeatherResolverResolver } from './guards/weather-resolver.resolver';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { WeatherResolverResolver } from './Guards/weather-resolver.resolver';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './Components/home/home.component';
 import { FavoriteComponent } from './Components/favorite/favorite.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),BrowserAnimationsModule],
+  imports: [RouterModule.forRoot(routes),BrowserAnimationsModule,NgxPaginationModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

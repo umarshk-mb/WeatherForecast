@@ -2,10 +2,10 @@
 <div class="search">
     <input type="text" placeholder="Search your city" class="input" name="value" [(ngModel)]="CityName" (keyup)="show()"> 
     <button type="button" class="btn btn-primary" (click)="Search()"  [disabled]="disabled">Search</button>
+
     <div *ngIf="!display">
         <p>Please Enter a City Name</p>
     </div>
-
     <div class="temperature" *ngIf="display">
         <p>Weather : <span>{{ weather | uppercase}}</span> </p>  
         <img [src]="src" class="icon"> 
@@ -14,7 +14,6 @@
         <p>Pressure : <span>{{pressure}}</span> </p>
         <p>Location : <span>{{location}}</span>  </p>        
         <button type="button" class="btn btn-success" (click)="AddToFavourite()">Save</button>
-    </div>
-    
+    </div>    
 </div>
 </div>

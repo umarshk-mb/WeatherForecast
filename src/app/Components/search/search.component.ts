@@ -73,7 +73,7 @@ export class SearchComponent {
     this.weatherforecast.location = this.location
     this.api.SavetoDB(this.weatherforecast).subscribe(
       ()=>{
-        window.alert("Data saved Succesfully .")
+       // window.alert("Data saved Succesfully .")
       },
       (error)=>{
         console.error("Error while Saving the data", error)
