@@ -1,5 +1,9 @@
-Weather Forecast
-
+Weather Forecast Web Application.
+  - This appliction helps the user's to search for a weather around the globe.
+  - user's can also save their favourite locations.
+  - user's can see the favourited items along with saved date and weather information.
+  - This application can be viewed in any mode such as Desktop, Tablet, and Mobile etc... 
+  - Technologies used in Front-end(Angular) & Back-end(Dotnet).
 
 
 <!--
